@@ -13,27 +13,56 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     var window: NSWindow!
+    let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
+    let focusApps = ["Xcode", "Code - Insiders", "Sublime Text", "IntelliJ IDEA"]
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+        // Read the current state and show in UI accordingly. Need to honor existing setting.
+        
+        if let button = statusItem.button {
+          button.image = NSImage(named:NSImage.Name("StatusBarButtonImage"))
+          button.action = #selector(toggleDND(_:))
+        }
+        
+        NSWorkspace.shared.notificationCenter.addObserver(self,
+            selector: #selector(switchDND(_:)),
+            name: NSWorkspace.didActivateApplicationNotification,
+            object:nil)
 
-        // Create the window and set the content view. 
-        window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
-            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
-            backing: .buffered, defer: false)
-        window.center()
-        window.setFrameAutosaveName("Main Window")
-        window.contentView = NSHostingView(rootView: contentView)
-        window.makeKeyAndOrderFront(nil)
+        constructMenu()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
 
+    @objc func toggleDND(_ sender: Any?) {
+        DoNotDisturb.isEnabled.toggle()
+        print("Toggle DND")
+    }
+    
+    func constructMenu() {
+      let menu = NSMenu()
 
+      menu.addItem(NSMenuItem(title: "Toggle DND", action: #selector(AppDelegate.toggleDND(_:)), keyEquivalent: "P"))
+      menu.addItem(NSMenuItem.separator())
+      menu.addItem(NSMenuItem(title: "Quit HeadsDown", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+
+      statusItem.menu = menu
+    }
+    
+    @objc dynamic private func switchDND(_ notification: NSNotification) {
+        let app = notification.userInfo!["NSWorkspaceApplicationKey"] as! NSRunningApplication
+        let appName = app.localizedName!
+        print(appName)
+        
+        if focusApps.contains(appName) {
+            DoNotDisturb.isEnabled = true;
+        } else {
+            // Check for how long and then switch.
+            
+        }
+    }
 }
 
