@@ -9,6 +9,7 @@
 import Cocoa
 
 public struct DoNotDisturb {
+    private static var startTime: Date?
     private static let appId = "com.apple.notificationcenterui" as CFString
 
     private static func set(_ key: String, value: CFPropertyList?) {
@@ -34,7 +35,7 @@ public struct DoNotDisturb {
         commitChanges()
         restartNotificationCenter()
     }
-
+    
     private static func disable() {
         guard isEnabled else {
             return
@@ -53,25 +54,27 @@ public struct DoNotDisturb {
 
         // We need to sleep for a little bit, otherwise it doesn't take effect.
         // It works with 0.3, but not with 0.2, so we're using 0.4 just to be sure.
-        sleep(UInt32(0.4))
+        sleep(for: 0.4)
 
         set("dndStart", value: nil)
         set("dndEnd", value: nil)
         commitChanges()
     }
-
+    
     static var isEnabled: Bool {
         get {
             CFPreferencesGetAppBooleanValue("doNotDisturb" as CFString, appId, nil)
         }
         set {
             if newValue {
-                print("Enable")
                 enable()
             } else {
-                print("Disable")
                 disable()
             }
         }
+    }
+    
+    private static func sleep(for duration: TimeInterval) {
+        usleep(useconds_t(duration * Double(USEC_PER_SEC)))
     }
 }
