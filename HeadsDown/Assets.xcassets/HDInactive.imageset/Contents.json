@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "HDInactive@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "StatusBarButtonImage@2x.png",
+      "filename" : "HDInactive@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "HDInactive@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

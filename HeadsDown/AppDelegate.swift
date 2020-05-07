@@ -19,11 +19,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Read the current state and show in UI accordingly. Need to honor existing setting.
         
-        if let button = statusItem.button {
-          button.image = NSImage(named:NSImage.Name("StatusBarButtonImage"))
-          button.action = #selector(toggleDND(_:))
-        }
-        
         NSWorkspace.shared.notificationCenter.addObserver(self,
             selector: #selector(switchDND(_:)),
             name: NSWorkspace.didActivateApplicationNotification,
@@ -40,9 +35,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         DoNotDisturb.isEnabled.toggle()
         print("Toggle DND")
         constructMenu()
+        updateIcon()
     }
     
     func constructMenu() {
+        updateIcon()
+        
         let menu = NSMenu()
         var statusMessage = "Enable"
         
@@ -57,7 +55,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.menu = menu
     }
     
+    func updateIcon() {
+        var imageName = "HDInactive"
+        
+        if DoNotDisturb.isEnabled {
+            imageName = "HDActive"
+        }
+        
+        if let button = statusItem.button {
+          button.image = NSImage(named:NSImage.Name(imageName))
+          button.action = #selector(toggleDND(_:))
+        }
+    }
+    
     @objc dynamic private func switchDND(_ notification: NSNotification) {
+        // Logic shoudl be: If you have not used one of these apps in the last X minutes, disable it
         if 1 != Int.random(in: 1..<5) {
             print("not executing")
             return;
