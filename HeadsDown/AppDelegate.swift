@@ -33,7 +33,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @objc func toggleDND(_ sender: Any?) {
         DoNotDisturb.isEnabled.toggle()
-        print("Toggle DND")
+        constructMenu()
+        updateIcon()
+    }
+    
+    @objc func toggleHeadsDown(_ sender: Any?) {
+        print(UserPreferences.isEnabled)
+        UserPreferences.isEnabled.toggle()
+        DoNotDisturb.isEnabled = false
         constructMenu()
         updateIcon()
     }
@@ -42,24 +49,34 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         updateIcon()
         
         let menu = NSMenu()
-        var statusMessage = "Enable"
-        
+        var statusMessage = "Focus"
         if DoNotDisturb.isEnabled {
-            statusMessage = "Disable"
+            statusMessage = "Unfocus"
         }
         
-        menu.addItem(NSMenuItem(title: "\(statusMessage)", action: #selector(AppDelegate.toggleDND(_:)), keyEquivalent: "P"))
+        var isEnabled = "Enable"
+        if !UserPreferences.isEnabled {
+            menu.addItem(NSMenuItem(title: "\(statusMessage)", action: #selector(AppDelegate.toggleDND(_:)), keyEquivalent: "P"))
+            isEnabled = "Disable"
+        }
+
+        
+        menu.addItem(NSMenuItem(title: "\(isEnabled)", action: #selector(AppDelegate.toggleHeadsDown(_:)), keyEquivalent: "P"))
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Quit HeadsDown", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
         
         statusItem.menu = menu
+
     }
     
     func updateIcon() {
         var imageName = "HDInactive"
         
         if DoNotDisturb.isEnabled {
-            imageName = "HDActive"
+            imageName = "HDActive"        }
+        
+        if UserPreferences.isEnabled {
+            imageName = "HDDisabled"
         }
         
         if let button = statusItem.button {
@@ -69,7 +86,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc dynamic private func switchDND(_ notification: NSNotification) {
-        // Logic shoudl be: If you have not used one of these apps in the last X minutes, disable it
+        if !UserPreferences.isEnabled {
+            return
+        }
+        
+        // Logic should be: If you have not used one of these apps in the last X minutes, disable it
         if 1 != Int.random(in: 1..<5) {
             print("not executing")
             return;
@@ -87,5 +108,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         constructMenu()
     }
+    
+    
 }
 
