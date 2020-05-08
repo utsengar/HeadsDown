@@ -14,7 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var window: NSWindow!
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
-    let focusApps = ["Xcode", "Code - Insiders", "Sublime Text", "IntelliJ IDEA"]
+    let focusApps = ["Xcode", "Code - Insiders", "Sublime Text", "IntelliJ IDEA", "Figma", "Sketch"]
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Read the current state and show in UI accordingly. Need to honor existing setting.
