@@ -74,7 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Settings", action: #selector(AppDelegate.toggleHeadsDown(_:)), keyEquivalent: "S"))
+        //menu.addItem(NSMenuItem(title: "Settings", action: #selector(AppDelegate.toggleHeadsDown(_:)), keyEquivalent: "S"))
         menu.addItem(NSMenuItem(title: "Quit HeadsDown", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
         
         statusItem.menu = menu
