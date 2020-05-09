@@ -23,6 +23,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             object:nil)
         
         constructMenu()
+        
+        // Sane defaults :)
         UserPreferences.isEnabled = true
         DoNotDisturb.isEnabled = false
     }
