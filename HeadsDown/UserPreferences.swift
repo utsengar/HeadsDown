@@ -19,4 +19,14 @@ public struct UserPreferences {
             UserDefaults.standard.set(newValue, forKey: "isEnabled")
         }
     }
+    
+    static var timeStarted : Date {
+        get {
+            UserDefaults.standard.object(forKey: "startTime") as? Date ?? Date()
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: "startTime")
+        }
+    }
 }
