@@ -13,7 +13,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var window: NSWindow!
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
-    let focusApps = ["Xcode", "Code - Insiders", "Sublime Text", "IntelliJ IDEA", "Figma", "Sketch"]
+    let focusApps = ["Xcode": true,
+                     "Code - Insiders": true,
+                     "Sublime Text": true,
+                     "IntelliJ IDEA": true,
+                     "Figma": true,
+                     "Sketch": false]
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSWorkspace.shared.notificationCenter.addObserver(self,
@@ -26,6 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Sane defaults :)
         UserPreferences.isEnabled = true
         DoNotDisturb.isEnabled = false
+        UserPreferences.apps = focusApps
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -45,6 +51,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             DoNotDisturb.isEnabled = true
         }
         constructMenu()
+    }
+    
+    @objc func openSettings(_ sender: Any?){
+        let window = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "WindowController") as! WindowController
+        window.showWindow(self)
     }
     
     func constructMenu() {
@@ -73,7 +84,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         menu.addItem(NSMenuItem.separator())
-        //menu.addItem(NSMenuItem(title: "Settings", action: #selector(AppDelegate.toggleHeadsDown(_:)), keyEquivalent: "S"))
+        menu.addItem(NSMenuItem(title: "Settings", action: #selector(AppDelegate.openSettings(_:)), keyEquivalent: "S"))
         menu.addItem(NSMenuItem(title: "Quit HeadsDown", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
         
         statusItem.menu = menu
@@ -97,7 +108,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let app = notification.userInfo!["NSWorkspaceApplicationKey"] as! NSRunningApplication
         let appName = app.localizedName!
         
-        if focusApps.contains(appName) {
+        if focusApps[appName] ?? false {
             DoNotDisturb.isEnabled = true
             UserPreferences.timeStarted = Date()
         } else {

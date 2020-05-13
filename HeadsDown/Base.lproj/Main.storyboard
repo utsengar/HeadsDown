@@ -684,9 +684,9 @@
         <!--Window Controller-->
         <scene sceneID="qSg-WG-ug4">
             <objects>
-                <windowController id="biU-6B-QxJ" customClass="WindowController" customModule="HeadsDown" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Clq-QF-TKX">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                <windowController storyboardIdentifier="WindowController" showSeguePresentationStyle="single" id="biU-6B-QxJ" customClass="WindowController" customModule="HeadsDown" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" identifier="WindowController" title="Heads Down" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" tabbingMode="disallowed" id="Clq-QF-TKX">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="216" y="264" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1536" height="937"/>
@@ -705,7 +705,7 @@
         <!--View Controller-->
         <scene sceneID="cna-YI-fP9">
             <objects>
-                <viewController id="vow-w2-3Rw" customClass="ViewController" customModule="HeadsDown" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController showSeguePresentationStyle="single" id="vow-w2-3Rw" customClass="ViewController" customModule="HeadsDown" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="W67-ff-hbu">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -756,6 +756,9 @@
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
                                                                     </buttonCell>
+                                                                    <connections>
+                                                                        <action selector="onChangeApp:" target="vow-w2-3Rw" id="qtD-CP-VwW"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <connections>

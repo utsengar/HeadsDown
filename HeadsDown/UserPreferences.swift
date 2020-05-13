@@ -29,4 +29,14 @@ public struct UserPreferences {
             UserDefaults.standard.set(newValue, forKey: "startTime")
         }
     }
+    
+    static var apps : [String : Bool] {
+        get {
+            UserDefaults.standard.dictionary(forKey: "apps") as! [String : Bool]
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: "apps")
+        }
+    }
 }
