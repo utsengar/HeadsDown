@@ -103,14 +103,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return
         }
 
-        // If DND is enabled, it will remain in that state for 1min.
-        //if DoNotDisturb.isEnabled && getDateDiff(start: UserPreferences.timeStarted, end: Date()) <= 60 {
-        //    return
-        //}
+        //If DND is enabled, it will remain in that state for 1min.
+        if DoNotDisturb.isEnabled && getDateDiff(start: UserPreferences.timeStarted, end: Date()) <= 60 {
+            return
+        }
         
         let app = notification.userInfo!["NSWorkspaceApplicationKey"] as! NSRunningApplication
         let appName = app.localizedName!
-        print(appName)
         
         if UserPreferences.apps[appName] ?? false {
             DoNotDisturb.isEnabled = true
