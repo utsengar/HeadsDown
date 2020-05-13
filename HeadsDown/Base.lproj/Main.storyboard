@@ -718,14 +718,14 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" autosaveColumns="NO" rowHeight="26" rowSizeStyle="automatic" headerView="LYE-gt-vIm" viewBased="YES" id="pRc-DM-eFC">
-                                            <rect key="frame" x="0.0" y="0.0" width="236" height="244"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="247" height="244"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn editable="NO" width="230" minWidth="10" maxWidth="3.4028234663852886e+38" id="IoM-UI-BXy">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                                <tableColumn editable="NO" width="244" minWidth="10" maxWidth="3.4028234663852886e+38" id="IoM-UI-BXy">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Supported Apps">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
@@ -737,11 +737,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="NameCellID" id="hDd-Nd-YN7" customClass="TableCellViewWithCheckbox" customModule="HeadsDown" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="1" width="230" height="26"/>
+                                                            <rect key="frame" x="1" y="1" width="244" height="26"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Esr-aQ-5JZ">
-                                                                    <rect key="frame" x="0.0" y="9" width="230" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="9" width="244" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="2Va-Zb-eXl">
                                                                         <font key="font" metaFont="system"/>
@@ -750,7 +750,7 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Iq-dh-eod">
-                                                                    <rect key="frame" x="12" y="4" width="230" height="18"/>
+                                                                    <rect key="frame" x="12" y="4" width="244" height="18"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                                     <buttonCell key="cell" type="check" title="Check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tOh-n0-GeN">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -772,7 +772,7 @@
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="OTz-Eo-PlM">
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="OTz-Eo-PlM">
                                     <rect key="frame" x="1" y="253" width="236" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -781,10 +781,28 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="LYE-gt-vIm">
-                                    <rect key="frame" x="0.0" y="0.0" width="236" height="25"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="247" height="25"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LC9-Kd-oWj">
+                                <rect key="frame" x="18" y="234" width="104" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Heads Down 👩‍💻" id="ghy-hJ-r5v">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="haV-lL-r9E">
+                                <rect key="frame" x="18" y="162" width="223" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" alignment="left" title="You can close this window and let Heads Down run in the background, you can always access it from the menu bar." id="SIr-cC-xbG">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>

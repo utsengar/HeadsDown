@@ -13,12 +13,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var window: NSWindow!
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
-    let focusApps = ["Xcode": true,
+    let focusAppsBootstrap = ["Xcode": true,
                      "Code - Insiders": true,
                      "Sublime Text": true,
                      "IntelliJ IDEA": true,
                      "Figma": true,
-                     "Sketch": false]
+                     "Sketch": true,
+                     "Code": true,
+                     "Sublime Merge": true,
+                     "WebStorm": true]
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSWorkspace.shared.notificationCenter.addObserver(self,
@@ -31,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Sane defaults :)
         UserPreferences.isEnabled = true
         DoNotDisturb.isEnabled = false
-        UserPreferences.apps = focusApps
+        UserPreferences.apps = focusAppsBootstrap
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -101,14 +104,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         // If DND is enabled, it will remain in that state for 1min.
-        if DoNotDisturb.isEnabled && getDateDiff(start: UserPreferences.timeStarted, end: Date()) <= 60 {
-            return
-        }
+        //if DoNotDisturb.isEnabled && getDateDiff(start: UserPreferences.timeStarted, end: Date()) <= 60 {
+        //    return
+        //}
         
         let app = notification.userInfo!["NSWorkspaceApplicationKey"] as! NSRunningApplication
         let appName = app.localizedName!
+        print(appName)
         
-        if focusApps[appName] ?? false {
+        if UserPreferences.apps[appName] ?? false {
             DoNotDisturb.isEnabled = true
             UserPreferences.timeStarted = Date()
         } else {
