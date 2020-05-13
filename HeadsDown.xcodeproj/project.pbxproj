@@ -12,6 +12,9 @@
 		BF22727B2463347100D51820 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF22727A2463347100D51820 /* Preview Assets.xcassets */; };
 		BF22727E2463347100D51820 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF22727C2463347100D51820 /* Main.storyboard */; };
 		BF227287246339AB00D51820 /* DoNotDisturb.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF227286246339AB00D51820 /* DoNotDisturb.swift */; };
+		BF537B50246B52BA0014D57E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF537B4F246B52BA0014D57E /* ViewController.swift */; };
+		BF537B52246B539A0014D57E /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF537B51246B539A0014D57E /* WindowController.swift */; };
+		BF537B58246B7AFA0014D57E /* TableCellViewWithCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF537B57246B7AFA0014D57E /* TableCellViewWithCheckbox.swift */; };
 		BF6591382465E3CE006BBFE4 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6591372465E3CE006BBFE4 /* UserPreferences.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +27,9 @@
 		BF22727F2463347100D51820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF2272802463347100D51820 /* HeadsDown.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HeadsDown.entitlements; sourceTree = "<group>"; };
 		BF227286246339AB00D51820 /* DoNotDisturb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoNotDisturb.swift; sourceTree = "<group>"; };
+		BF537B4F246B52BA0014D57E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF537B51246B539A0014D57E /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		BF537B57246B7AFA0014D57E /* TableCellViewWithCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellViewWithCheckbox.swift; sourceTree = "<group>"; };
 		BF6591372465E3CE006BBFE4 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +71,9 @@
 				BF2272792463347100D51820 /* Preview Content */,
 				BF227286246339AB00D51820 /* DoNotDisturb.swift */,
 				BF6591372465E3CE006BBFE4 /* UserPreferences.swift */,
+				BF537B4F246B52BA0014D57E /* ViewController.swift */,
+				BF537B51246B539A0014D57E /* WindowController.swift */,
+				BF537B57246B7AFA0014D57E /* TableCellViewWithCheckbox.swift */,
 			);
 			path = HeadsDown;
 			sourceTree = "<group>";
@@ -149,7 +158,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF2272742463346F00D51820 /* AppDelegate.swift in Sources */,
+				BF537B52246B539A0014D57E /* WindowController.swift in Sources */,
 				BF6591382465E3CE006BBFE4 /* UserPreferences.swift in Sources */,
+				BF537B50246B52BA0014D57E /* ViewController.swift in Sources */,
+				BF537B58246B7AFA0014D57E /* TableCellViewWithCheckbox.swift in Sources */,
 				BF227287246339AB00D51820 /* DoNotDisturb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
