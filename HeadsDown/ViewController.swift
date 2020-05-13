@@ -57,6 +57,10 @@ extension ViewController: NSTableViewDelegate {
         static let NameCell = "NameCellID"
     }
 
+    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        return false
+    }
+    
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
 
         var text: String = ""
