@@ -22,6 +22,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             name: NSWorkspace.didActivateApplicationNotification,
             object:nil)
         
+        NSWorkspace.shared.notificationCenter.addObserver(self,
+            selector: #selector(printIt(_:)),
+            name: NSWorkspace.activeSpaceDidChangeNotification,
+            object:nil)
+        
         constructMenu()
         
         // Sane defaults :)
@@ -83,6 +88,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
           button.image = NSImage(named:NSImage.Name(imageName))
           button.action = #selector(toggleDND(_:))
         }
+    }
+    
+    @objc dynamic private func detectFulScreen(_ notification: NSNotification) {
+        print(notification)
     }
     
     @objc dynamic private func switchDND(_ notification: NSNotification) {
