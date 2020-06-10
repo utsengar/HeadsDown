@@ -104,9 +104,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         //If DND is enabled, it will remain in that state for 1min.
-        if DoNotDisturb.isEnabled && getDateDiff(start: UserPreferences.timeStarted, end: Date()) <= 60 {
-            return
-        }
+        // if DoNotDisturb.isEnabled && getDateDiff(start: UserPreferences.timeStarted, end: Date()) <= 60 {
+        //    return
+        //}
         
         let app = notification.userInfo!["NSWorkspaceApplicationKey"] as! NSRunningApplication
         let appName = app.localizedName!
