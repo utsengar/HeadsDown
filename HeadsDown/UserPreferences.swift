@@ -32,7 +32,19 @@ public struct UserPreferences {
     
     static var apps : [String : Bool] {
         get {
-            UserDefaults.standard.dictionary(forKey: "apps") as! [String : Bool]
+            guard let userApps = UserDefaults.standard.dictionary(forKey: "apps") as? [String: Bool] else {
+                return ["Xcode": true,
+                "Code - Insiders": true,
+                "Sublime Text": true,
+                "IntelliJ IDEA": true,
+                "Figma": true,
+                "Sketch": true,
+                "Code": true,
+                "Sublime Merge": true,
+                "WebStorm": true]
+            }
+            
+            return userApps
         }
         
         set {

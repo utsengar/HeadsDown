@@ -13,15 +13,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var window: NSWindow!
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
-    let focusAppsBootstrap = ["Xcode": true,
-                     "Code - Insiders": true,
-                     "Sublime Text": true,
-                     "IntelliJ IDEA": true,
-                     "Figma": true,
-                     "Sketch": true,
-                     "Code": true,
-                     "Sublime Merge": true,
-                     "WebStorm": true]
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSWorkspace.shared.notificationCenter.addObserver(self,
@@ -34,7 +25,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Sane defaults :)
         UserPreferences.isEnabled = true
         DoNotDisturb.isEnabled = false
-        UserPreferences.apps = focusAppsBootstrap
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
