@@ -53,7 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func constructMenu() {
         var imageName = ""
-        var statusMessage = ""
+        //var statusMessage = ""
         var statusOfHD = ""
         let menu = NSMenu()
         
@@ -61,14 +61,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if UserPreferences.isEnabled && DoNotDisturb.isEnabled {
             imageName = "HDActive"
             statusOfHD = "Disable"
-            statusMessage = "Unfocus"
-            menu.addItem(NSMenuItem(title: "\(statusMessage)", action: #selector(AppDelegate.toggleDND(_:)), keyEquivalent: "P"))
+            //statusMessage = "Unfocus"
+            //menu.addItem(NSMenuItem(title: "\(statusMessage)", action: #selector(AppDelegate.toggleDND(_:)), keyEquivalent: "P"))
             menu.addItem(NSMenuItem(title: "\(statusOfHD)", action: #selector(AppDelegate.toggleHeadsDown(_:)), keyEquivalent: "D"))
         } else if UserPreferences.isEnabled && !DoNotDisturb.isEnabled {
             imageName = "HDInactive"
             statusOfHD = "Disable"
-            statusMessage = "Focus 🎯"
-            menu.addItem(NSMenuItem(title: "\(statusMessage)", action: #selector(AppDelegate.toggleDND(_:)), keyEquivalent: "P"))
+            //statusMessage = "Focus 🎯"
+            //menu.addItem(NSMenuItem(title: "\(statusMessage)", action: #selector(AppDelegate.toggleDND(_:)), keyEquivalent: "P"))
             menu.addItem(NSMenuItem(title: "\(statusOfHD)", action: #selector(AppDelegate.toggleHeadsDown(_:)), keyEquivalent: "D"))
         } else if !UserPreferences.isEnabled {
             imageName = "HDDisabled"
