@@ -10,7 +10,7 @@ import Cocoa
 
 class ViewController: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
-
+    
     var appsAsArry = [String]()
     
     override func viewDidLoad() {
@@ -40,6 +40,59 @@ class ViewController: NSViewController {
                 print("Represented object: \(url)")
             }
         }
+    }
+    
+    @IBAction func addApp(_ sender: Any) {
+        let dialog = createDialog()
+        if (dialog.runModal() ==  NSApplication.ModalResponse.OK) {
+            let result = dialog.url // Pathname of the file
+
+            if (result != nil) {
+                let path: String = result!.path
+                if (applicationSelected(path: path)) {
+                    let appSelected = fetchAppName(path: path)
+                    // if path is an application add it to the user preferences
+                    var apps = UserPreferences.apps
+                    apps[appSelected] = true
+                    UserPreferences.apps = apps
+                    // Reset apps list
+                    refreshAppList()
+                }
+            }
+        } else {
+            // User clicked on "Cancel"
+            return
+        }
+    }
+    
+    func createDialog() -> NSOpenPanel {
+        let dialog = NSOpenPanel()
+
+        dialog.title                   = "Choose an Application"
+        dialog.showsResizeIndicator    = true
+        dialog.showsHiddenFiles        = false
+        dialog.allowsMultipleSelection = false
+        dialog.canChooseDirectories = false
+        dialog.directoryURL = URL(string: "/Applications")
+        return dialog
+    }
+    
+    func applicationSelected(path: String) -> Bool {
+        return path.hasPrefix("/Applications")
+    }
+    
+    func fetchAppName(path: String) -> String {
+        return path.replacingOccurrences(of: "/Applications/", with: "").replacingOccurrences(of: ".app", with: "")
+    }
+    
+    func refreshAppList() {
+        // FIXME: I could not make the list to be refreshed after selecting a new app
+        // However, if you close the window and open it again (through 'Settings' in the icon) it gets refreshed.
+        appsAsArry.removeAll()
+        for app in UserPreferences.apps {
+            appsAsArry.append(app.key)
+        }
+        tableView.dataSource = self
     }
 }
 
