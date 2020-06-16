@@ -50,11 +50,13 @@ class ViewController: NSViewController {
                 if (applicationSelected(path: path)) {
                     let appSelected = fetchAppName(path: path)
                     // if path is an application add it to the user preferences
-                    var apps = UserPreferences.apps
-                    apps[appSelected] = true
-                    UserPreferences.apps = apps
-                    // Reset apps list
-                    refreshAppList()
+                    if (appSelected != "") {
+                        var apps = UserPreferences.apps
+                        apps[appSelected] = true
+                        UserPreferences.apps = apps
+                        // Reset apps list
+                        refreshAppList()
+                    }
                 }
             }
         } else {
@@ -80,7 +82,7 @@ class ViewController: NSViewController {
     }
     
     func fetchAppName(path: String) -> String {
-        return path.replacingOccurrences(of: "/Applications/", with: "").replacingOccurrences(of: ".app", with: "")
+        return path.components(separatedBy: "/").last?.replacingOccurrences(of: ".app", with: "") ?? ""
     }
     
     func refreshAppList() {
