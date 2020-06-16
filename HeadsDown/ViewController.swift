@@ -48,7 +48,7 @@ class ViewController: NSViewController {
             if (result != nil) {
                 let path: String = result!.path
                 if (applicationSelected(path: path)) {
-                    let appSelected = fetchAppName(path: path)
+                    let appSelected = result!.lastPathComponent
                     // if path is an application add it to the user preferences
                     if (appSelected != "") {
                         var apps = UserPreferences.apps
@@ -79,10 +79,6 @@ class ViewController: NSViewController {
     
     func applicationSelected(path: String) -> Bool {
         return path.hasPrefix("/Applications")
-    }
-    
-    func fetchAppName(path: String) -> String {
-        return path.components(separatedBy: "/").last?.replacingOccurrences(of: ".app", with: "") ?? ""
     }
     
     func refreshAppList() {
