@@ -18,9 +18,7 @@ class ViewController: NSViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        for app in UserPreferences.apps {
-            appsAsArry.append(app.key)
-        }
+        refreshAppList()
     }
 
     @IBAction func onChangeApp(_ sender: NSButton) {
@@ -86,13 +84,12 @@ class ViewController: NSViewController {
     }
     
     func refreshAppList() {
-        // FIXME: I could not make the list to be refreshed after selecting a new app
-        // However, if you close the window and open it again (through 'Settings' in the icon) it gets refreshed.
         appsAsArry.removeAll()
         for app in UserPreferences.apps {
             appsAsArry.append(app.key)
         }
-        tableView.dataSource = self
+        appsAsArry = appsAsArry.sorted{$0.compare($1, options: .caseInsensitive) == .orderedAscending }
+        tableView.reloadData()
     }
 }
 
