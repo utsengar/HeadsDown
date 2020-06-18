@@ -96,8 +96,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
           button.image = NSImage(named:NSImage.Name(imageName))
           button.action = #selector(toggleDND(_:))
         }
-        
-        queryApps()
     }
     
     @objc dynamic private func switchDND(_ notification: NSNotification) {
@@ -120,23 +118,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             DoNotDisturb.isEnabled = false
         }
         constructMenu()
-    }
-    
-    func queryApps() {
-        let predicate = NSPredicate(format: "kMDItemKind == 'Application'")
-        query.predicate = predicate
-        query.start()
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.finishQuery),
-                                               name:NSNotification.Name.NSMetadataQueryDidFinishGathering,
-                                               object: nil)
-    }
-    
-    @objc func finishQuery(notification: NSNotification) {
-        query.stop()
-
-        NotificationCenter.default.removeObserver(self, name:NSNotification.Name.NSMetadataQueryDidFinishGathering, object: nil)
     }
     
     func getDateDiff(start: Date, end: Date) -> Int  {
