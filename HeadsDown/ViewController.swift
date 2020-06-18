@@ -74,6 +74,7 @@ class ViewController: NSViewController {
         dialog.showsHiddenFiles        = false
         dialog.allowsMultipleSelection = false
         dialog.canChooseDirectories = false
+        dialog.allowedFileTypes = ["app"]
         dialog.directoryURL = URL(string: "/Applications")
         return dialog
     }
