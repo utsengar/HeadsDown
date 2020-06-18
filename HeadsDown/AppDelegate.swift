@@ -7,14 +7,21 @@
 //
 
 import Cocoa
+import Sentry
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     var window: NSWindow!
+    let query = NSMetadataQuery()
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        SentrySDK.start(options: [
+            "dsn": "https://6021f1a7d8e94533b72041a700d310ee@o409520.ingest.sentry.io/5282246",
+            "debug": false
+        ])
+        
         NSWorkspace.shared.notificationCenter.addObserver(self,
             selector: #selector(switchDND(_:)),
             name: NSWorkspace.didActivateApplicationNotification,
@@ -25,8 +32,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Sane defaults :)
         UserPreferences.isEnabled = true
         DoNotDisturb.isEnabled = false
+        
+        NSApp.activate(ignoringOtherApps: true)
     }
-
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
@@ -48,6 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc func openSettings(_ sender: Any?){
         let window = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "WindowController") as! WindowController
+        NSApp.activate(ignoringOtherApps: true)
         window.showWindow(self)
     }
     

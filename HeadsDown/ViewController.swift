@@ -10,7 +10,7 @@ import Cocoa
 
 class ViewController: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
-
+    
     var appsAsArry = [String]()
     
     override func viewDidLoad() {
@@ -18,9 +18,7 @@ class ViewController: NSViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        for app in UserPreferences.apps {
-            appsAsArry.append(app.key)
-        }
+        refreshAppList()
     }
 
     @IBAction func onChangeApp(_ sender: NSButton) {
@@ -40,6 +38,58 @@ class ViewController: NSViewController {
                 print("Represented object: \(url)")
             }
         }
+    }
+    
+    @IBAction func addApp(_ sender: Any) {
+        let dialog = createDialog()
+        if (dialog.runModal() ==  NSApplication.ModalResponse.OK) {
+            let result = dialog.url // Pathname of the file
+
+            if (result != nil) {
+                let path: String = result!.path
+                if (applicationSelected(path: path)) {
+                    let appSelected = result!.lastPathComponent
+                    // if path is an application add it to the user preferences
+                    if (appSelected != "") {
+                        let appName = String(appSelected.split(separator: ".")[0])
+                        var apps = UserPreferences.apps
+                        apps[appName] = true
+                        UserPreferences.apps = apps
+                        // Reset apps list
+                        refreshAppList()
+                    }
+                }
+            }
+        } else {
+            // User clicked on "Cancel"
+            return
+        }
+    }
+    
+    func createDialog() -> NSOpenPanel {
+        let dialog = NSOpenPanel()
+
+        dialog.title                   = "Choose an Application"
+        dialog.showsResizeIndicator    = true
+        dialog.showsHiddenFiles        = false
+        dialog.allowsMultipleSelection = false
+        dialog.canChooseDirectories = false
+        dialog.allowedFileTypes = ["app"]
+        dialog.directoryURL = URL(string: "/Applications")
+        return dialog
+    }
+    
+    func applicationSelected(path: String) -> Bool {
+        return path.hasPrefix("/Applications")
+    }
+    
+    func refreshAppList() {
+        appsAsArry.removeAll()
+        for app in UserPreferences.apps {
+            appsAsArry.append(app.key)
+        }
+        appsAsArry = appsAsArry.sorted{$0.compare($1, options: .caseInsensitive) == .orderedAscending }
+        tableView.reloadData()
     }
 }
 
