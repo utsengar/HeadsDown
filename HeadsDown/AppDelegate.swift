@@ -27,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         UserPreferences.isEnabled = true
         DoNotDisturb.isEnabled = false
         
-        //queryApps()
+        NSApp.activate(ignoringOtherApps: true)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -51,6 +51,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc func openSettings(_ sender: Any?){
         let window = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "WindowController") as! WindowController
+        NSApp.activate(ignoringOtherApps: true)
         window.showWindow(self)
     }
     
@@ -128,13 +129,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc func finishQuery(notification: NSNotification) {
         query.stop()
-        print(query.resultCount)
-                
-        for app in query.results {
-            let app1 = app as! NSMetadataItem
-            print(app1.value(forAttribute: "kMDItemFSName"))
-        }
-        
+
         NotificationCenter.default.removeObserver(self, name:NSNotification.Name.NSMetadataQueryDidFinishGathering, object: nil)
     }
     

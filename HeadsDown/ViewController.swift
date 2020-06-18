@@ -51,8 +51,9 @@ class ViewController: NSViewController {
                     let appSelected = result!.lastPathComponent
                     // if path is an application add it to the user preferences
                     if (appSelected != "") {
+                        let appName = String(appSelected.split(separator: ".")[0])
                         var apps = UserPreferences.apps
-                        apps[appSelected] = true
+                        apps[appName] = true
                         UserPreferences.apps = apps
                         // Reset apps list
                         refreshAppList()
