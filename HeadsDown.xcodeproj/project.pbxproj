@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66E2303E99D03C0E70F38BC2 /* Pods_HeadsDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38DFD5669719B16724D01C02 /* Pods_HeadsDown.framework */; };
 		BF2272742463346F00D51820 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2272732463346F00D51820 /* AppDelegate.swift */; };
 		BF2272782463347100D51820 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF2272772463347100D51820 /* Assets.xcassets */; };
 		BF22727B2463347100D51820 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF22727A2463347100D51820 /* Preview Assets.xcassets */; };
@@ -16,10 +17,11 @@
 		BF537B52246B539A0014D57E /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF537B51246B539A0014D57E /* WindowController.swift */; };
 		BF537B58246B7AFA0014D57E /* TableCellViewWithCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF537B57246B7AFA0014D57E /* TableCellViewWithCheckbox.swift */; };
 		BF6591382465E3CE006BBFE4 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6591372465E3CE006BBFE4 /* UserPreferences.swift */; };
-		BFD36FD4249C14B7007445F2 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = BFD36FD3249C14B7007445F2 /* Sentry */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38DFD5669719B16724D01C02 /* Pods_HeadsDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeadsDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A31ED39BE8FAF479C6503127 /* Pods-HeadsDown.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeadsDown.debug.xcconfig"; path = "Target Support Files/Pods-HeadsDown/Pods-HeadsDown.debug.xcconfig"; sourceTree = "<group>"; };
 		BF2272702463346F00D51820 /* HeadsDown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadsDown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF2272732463346F00D51820 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF2272772463347100D51820 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -32,6 +34,7 @@
 		BF537B51246B539A0014D57E /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		BF537B57246B7AFA0014D57E /* TableCellViewWithCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellViewWithCheckbox.swift; sourceTree = "<group>"; };
 		BF6591372465E3CE006BBFE4 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
+		D3A63E71E86E7C7ECA4C432F /* Pods-HeadsDown.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeadsDown.release.xcconfig"; path = "Target Support Files/Pods-HeadsDown/Pods-HeadsDown.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,18 +42,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFD36FD4249C14B7007445F2 /* Sentry in Frameworks */,
+				66E2303E99D03C0E70F38BC2 /* Pods_HeadsDown.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DFDC66D7507A2A96AF5A64F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38DFD5669719B16724D01C02 /* Pods_HeadsDown.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4BD7CD2237ED314D2848075B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A31ED39BE8FAF479C6503127 /* Pods-HeadsDown.debug.xcconfig */,
+				D3A63E71E86E7C7ECA4C432F /* Pods-HeadsDown.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BF2272672463346F00D51820 = {
 			isa = PBXGroup;
 			children = (
 				BF2272722463346F00D51820 /* HeadsDown */,
 				BF2272712463346F00D51820 /* Products */,
+				4BD7CD2237ED314D2848075B /* Pods */,
+				2DFDC66D7507A2A96AF5A64F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,9 +117,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF2272832463347100D51820 /* Build configuration list for PBXNativeTarget "HeadsDown" */;
 			buildPhases = (
+				E4AFA33FAE5A50D4C6235EE8 /* [CP] Check Pods Manifest.lock */,
 				BF22726C2463346F00D51820 /* Sources */,
 				BF22726D2463346F00D51820 /* Frameworks */,
 				BF22726E2463346F00D51820 /* Resources */,
+				5741B1A017BB2A0C50B42CCD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -105,7 +129,6 @@
 			);
 			name = HeadsDown;
 			packageProductDependencies = (
-				BFD36FD3249C14B7007445F2 /* Sentry */,
 			);
 			productName = HeadsDown;
 			productReference = BF2272702463346F00D51820 /* HeadsDown.app */;
@@ -118,7 +141,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = Area42;
 				TargetAttributes = {
 					BF22726F2463346F00D51820 = {
@@ -136,7 +159,6 @@
 			);
 			mainGroup = BF2272672463346F00D51820;
 			packageReferences = (
-				BFD36FD2249C14B7007445F2 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 			);
 			productRefGroup = BF2272712463346F00D51820 /* Products */;
 			projectDirPath = "";
@@ -159,6 +181,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5741B1A017BB2A0C50B42CCD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HeadsDown/Pods-HeadsDown-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HeadsDown/Pods-HeadsDown-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HeadsDown/Pods-HeadsDown-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4AFA33FAE5A50D4C6235EE8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HeadsDown-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BF22726C2463346F00D51820 /* Sources */ = {
@@ -223,7 +287,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -241,7 +305,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -305,6 +369,7 @@
 		};
 		BF2272842463347100D51820 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A31ED39BE8FAF479C6503127 /* Pods-HeadsDown.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HeadsDown/HeadsDown.entitlements;
@@ -329,6 +394,7 @@
 		};
 		BF2272852463347100D51820 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3A63E71E86E7C7ECA4C432F /* Pods-HeadsDown.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HeadsDown/HeadsDown.entitlements;
@@ -374,25 +440,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		BFD36FD2249C14B7007445F2 /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/getsentry/sentry-cocoa.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.1.4;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		BFD36FD3249C14B7007445F2 /* Sentry */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BFD36FD2249C14B7007445F2 /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = Sentry;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BF2272682463346F00D51820 /* Project object */;
 }

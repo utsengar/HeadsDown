@@ -1,0 +1,29 @@
+PODS:
+  - AppCenter (3.2.0):
+    - AppCenter/Analytics (= 3.2.0)
+    - AppCenter/Crashes (= 3.2.0)
+  - AppCenter/Analytics (3.2.0):
+    - AppCenter/Core
+  - AppCenter/Core (3.2.0)
+  - AppCenter/Crashes (3.2.0):
+    - AppCenter/Core
+  - Sentry (5.1.4):
+    - Sentry/Core (= 5.1.4)
+  - Sentry/Core (5.1.4)
+
+DEPENDENCIES:
+  - AppCenter
+  - Sentry (~> 5.1)
+
+SPEC REPOS:
+  trunk:
+    - AppCenter
+    - Sentry
+
+SPEC CHECKSUMS:
+  AppCenter: ca66175050d538b157959382dd43f1ab96cdab84
+  Sentry: 74f2ad93a20a5567a1badaedf5b3f60b142ad082
+
+PODFILE CHECKSUM: a383ef6ac0e1f2e3d77ca32fe6b21995c5a61e5e
+
+COCOAPODS: 1.9.3
