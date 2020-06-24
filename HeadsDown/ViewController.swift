@@ -59,11 +59,13 @@ class ViewController: NSViewController {
                         UserPreferences.apps = apps
                         // Reset apps list
                         refreshAppList()
+                        MSAnalytics.trackEvent("AppAdded")
                     }
                 }
             }
         } else {
             // User clicked on "Cancel"
+            MSAnalytics.trackEvent("AddAppDialogCancelled")
             return
         }
     }

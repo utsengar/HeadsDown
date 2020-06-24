@@ -52,7 +52,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func toggleDND(_ sender: Any?) {
         DoNotDisturb.isEnabled.toggle()
         constructMenu()
-        MSAnalytics.trackEvent("DNDToggled")
     }
     
     @objc func toggleHeadsDown(_ sender: Any?) {
@@ -111,6 +110,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc dynamic private func switchDND(_ notification: NSNotification) {
+        MSAnalytics.trackEvent("DNDToggledAttempted")
         if !UserPreferences.isEnabled {
             return
         }
@@ -129,6 +129,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             DoNotDisturb.isEnabled = false
         }
+        MSAnalytics.trackEvent("DNDToggled")
         constructMenu()
     }
     
