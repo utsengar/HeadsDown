@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import AppCenterAnalytics
 
 class ViewController: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
@@ -41,6 +42,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func addApp(_ sender: Any) {
+        MSAnalytics.trackEvent("AddAppOpened")
         let dialog = createDialog()
         if (dialog.runModal() ==  NSApplication.ModalResponse.OK) {
             let result = dialog.url // Pathname of the file
@@ -57,11 +59,13 @@ class ViewController: NSViewController {
                         UserPreferences.apps = apps
                         // Reset apps list
                         refreshAppList()
+                        MSAnalytics.trackEvent("AppAdded")
                     }
                 }
             }
         } else {
             // User clicked on "Cancel"
+            MSAnalytics.trackEvent("AddAppDialogCancelled")
             return
         }
     }

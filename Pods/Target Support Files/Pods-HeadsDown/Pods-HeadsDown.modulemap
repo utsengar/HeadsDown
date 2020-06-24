@@ -1,0 +1,6 @@
+framework module Pods_HeadsDown {
+  umbrella header "Pods-HeadsDown-umbrella.h"
+
+  export *
+  module * { export * }
+}

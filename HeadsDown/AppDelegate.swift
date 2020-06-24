@@ -8,6 +8,10 @@
 
 import Cocoa
 import Sentry
+import AppCenter
+import AppCenterAnalytics
+import AppCenterCrashes
+
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -21,6 +25,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             "dsn": "https://6021f1a7d8e94533b72041a700d310ee@o409520.ingest.sentry.io/5282246",
             "debug": false
         ])
+        MSAppCenter.start("e874a8f4-fc72-4c9c-a805-c8e9b5e40106", withServices:[
+          MSAnalytics.self,
+          MSCrashes.self
+        ])
+        MSAnalytics.trackEvent("AppLaunched")
         
         NSWorkspace.shared.notificationCenter.addObserver(self,
             selector: #selector(switchDND(_:)),
@@ -53,12 +62,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             DoNotDisturb.isEnabled = true
         }
         constructMenu()
+        MSAnalytics.trackEvent("HDToggled")
     }
     
     @objc func openSettings(_ sender: Any?){
         let window = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "WindowController") as! WindowController
         NSApp.activate(ignoringOtherApps: true)
         window.showWindow(self)
+        MSAnalytics.trackEvent("SettingsOpened")
     }
     
     func constructMenu() {
@@ -99,6 +110,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc dynamic private func switchDND(_ notification: NSNotification) {
+        MSAnalytics.trackEvent("DNDToggledAttempted")
         if !UserPreferences.isEnabled {
             return
         }
@@ -109,7 +121,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //}
         
         let app = notification.userInfo!["NSWorkspaceApplicationKey"] as! NSRunningApplication
-        let appName = app.localizedName!
+        let appName = app.localizedName ?? ""
         
         if UserPreferences.apps[appName] ?? false {
             DoNotDisturb.isEnabled = true
@@ -117,6 +129,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             DoNotDisturb.isEnabled = false
         }
+        MSAnalytics.trackEvent("DNDToggled")
         constructMenu()
     }
     
