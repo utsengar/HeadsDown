@@ -48,6 +48,13 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
+                                        <menuItem title="Check for Updates" id="SDV-iE-yLJ">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="checkForUpdates:" target="hnw-xV-0zn" id="b8w-72-eIE"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="Sww-Pq-PME"/>
                                         <menuItem title="Quit HeadsDown" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
@@ -678,6 +685,7 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="HeadsDown" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Tdk-vv-qhm" customClass="SUUpdater"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
@@ -706,7 +714,7 @@
         <scene sceneID="cna-YI-fP9">
             <objects>
                 <viewController showSeguePresentationStyle="single" id="vow-w2-3Rw" customClass="ViewController" customModule="HeadsDown" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="W67-ff-hbu">
+                    <view key="view" misplaced="YES" id="W67-ff-hbu">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="245"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -810,7 +818,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nXx-44-jmr">
-                                <rect key="frame" x="20" y="87" width="214" height="23"/>
+                                <rect key="frame" x="20" y="112" width="214" height="23"/>
                                 <buttonCell key="cell" type="roundTextured" title="Add App" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6FM-cm-aVi">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>

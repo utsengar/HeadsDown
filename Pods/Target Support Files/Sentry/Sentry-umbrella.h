@@ -87,6 +87,7 @@
 #import "SentryUser.h"
 #import "NSArray+SentrySanitize.h"
 #import "SentryStacktraceBuilder.h"
+#import "SentrySystemEventsBreadcrumbs.h"
 #import "SentryCrashInstallation+Private.h"
 #import "SentryCrashInstallation.h"
 #import "SentryCrashMonitor.h"

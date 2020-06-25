@@ -1,29 +1,33 @@
 PODS:
-  - AppCenter (3.2.0):
-    - AppCenter/Analytics (= 3.2.0)
-    - AppCenter/Crashes (= 3.2.0)
-  - AppCenter/Analytics (3.2.0):
+  - AppCenter (3.3.0):
+    - AppCenter/Analytics (= 3.3.0)
+    - AppCenter/Crashes (= 3.3.0)
+  - AppCenter/Analytics (3.3.0):
     - AppCenter/Core
-  - AppCenter/Core (3.2.0)
-  - AppCenter/Crashes (3.2.0):
+  - AppCenter/Core (3.3.0)
+  - AppCenter/Crashes (3.3.0):
     - AppCenter/Core
-  - Sentry (5.1.4):
-    - Sentry/Core (= 5.1.4)
-  - Sentry/Core (5.1.4)
+  - Sentry (5.1.5):
+    - Sentry/Core (= 5.1.5)
+  - Sentry/Core (5.1.5)
+  - Sparkle (1.23.0)
 
 DEPENDENCIES:
   - AppCenter
   - Sentry (~> 5.1)
+  - Sparkle
 
 SPEC REPOS:
   trunk:
     - AppCenter
     - Sentry
+    - Sparkle
 
 SPEC CHECKSUMS:
-  AppCenter: ca66175050d538b157959382dd43f1ab96cdab84
-  Sentry: 74f2ad93a20a5567a1badaedf5b3f60b142ad082
+  AppCenter: 976294db3f288d82204afc6ad71790d71be249ac
+  Sentry: e73af5462d1e7978c571aa2fdb861053938d7efd
+  Sparkle: 55b1a87ba69d56913375a281546b7c82dec95bb0
 
-PODFILE CHECKSUM: a383ef6ac0e1f2e3d77ca32fe6b21995c5a61e5e
+PODFILE CHECKSUM: 1aa29de0adc0926f368706ff3fc93a2f7afde9af
 
 COCOAPODS: 1.9.3
