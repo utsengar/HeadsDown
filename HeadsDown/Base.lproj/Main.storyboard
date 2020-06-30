@@ -719,13 +719,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="28" horizontalPageScroll="10" verticalLineScroll="28" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="MhT-y5-OmK">
-                                <rect key="frame" x="242" y="0.0" width="238" height="245"/>
+                                <rect key="frame" x="242" y="0.0" width="238" height="220"/>
                                 <clipView key="contentView" id="Bcn-5x-cWU">
-                                    <rect key="frame" x="1" y="0.0" width="236" height="244"/>
+                                    <rect key="frame" x="1" y="0.0" width="236" height="219"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" autosaveColumns="NO" rowHeight="26" rowSizeStyle="automatic" headerView="LYE-gt-vIm" viewBased="YES" id="pRc-DM-eFC">
-                                            <rect key="frame" x="0.0" y="0.0" width="261" height="219"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="261" height="194"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -801,7 +801,7 @@
                                 </tableHeaderView>
                             </scrollView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="LC9-Kd-oWj">
-                                <rect key="frame" x="18" y="209" width="104" height="16"/>
+                                <rect key="frame" x="18" y="184" width="104" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Heads Down 👩‍💻" id="ghy-hJ-r5v">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -817,14 +817,25 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nXx-44-jmr">
-                                <rect key="frame" x="20" y="112" width="214" height="23"/>
+                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nXx-44-jmr">
+                                <rect key="frame" x="20" y="68" width="200" height="23"/>
                                 <buttonCell key="cell" type="roundTextured" title="Add App" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6FM-cm-aVi">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="addApp:" target="vow-w2-3Rw" id="bLb-8G-EIU"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="foE-R3-ihL">
+                                <rect key="frame" x="20" y="38" width="200" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" title="Check for Updates" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dp0-eN-1Te">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="checkForUpdatesButton:" target="vow-w2-3Rw" id="QC1-wj-i1g"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -850,7 +861,7 @@
                 </viewController>
                 <customObject id="vSj-rr-nNu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="804" y="229"/>
+            <point key="canvasLocation" x="804" y="227.5"/>
         </scene>
     </scenes>
 </document>
