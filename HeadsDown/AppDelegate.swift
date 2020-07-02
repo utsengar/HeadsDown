@@ -38,6 +38,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         constructMenu()
         
+        #if DEBUG
+            MSAppCenter.setEnabled(false)
+        #else
+            MSAppCenter.setEnabled(true)
+        #endif
+        
+        
         // Sane defaults :)
         UserPreferences.isEnabled = true
         DoNotDisturb.isEnabled = false
