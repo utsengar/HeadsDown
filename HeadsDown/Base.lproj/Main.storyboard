@@ -715,13 +715,13 @@
             <objects>
                 <viewController showSeguePresentationStyle="single" id="vow-w2-3Rw" customClass="ViewController" customModule="HeadsDown" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" misplaced="YES" id="W67-ff-hbu">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="245"/>
+                        <rect key="frame" x="0.0" y="0.0" width="503" height="220"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="28" horizontalPageScroll="10" verticalLineScroll="28" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="MhT-y5-OmK">
-                                <rect key="frame" x="242" y="0.0" width="238" height="220"/>
+                                <rect key="frame" x="240" y="0.0" width="263" height="220"/>
                                 <clipView key="contentView" id="Bcn-5x-cWU">
-                                    <rect key="frame" x="1" y="0.0" width="236" height="219"/>
+                                    <rect key="frame" x="1" y="0.0" width="261" height="219"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" autosaveColumns="NO" rowHeight="26" rowSizeStyle="automatic" headerView="LYE-gt-vIm" viewBased="YES" id="pRc-DM-eFC">
@@ -809,7 +809,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="haV-lL-r9E">
-                                <rect key="frame" x="18" y="93" width="204" height="108"/>
+                                <rect key="frame" x="18" y="97" width="204" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" alignment="left" title="You can close this window and let Heads Down run in the background, you can always access it from the menu bar." id="SIr-cC-xbG">
                                     <font key="font" metaFont="system"/>
@@ -817,19 +817,8 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nXx-44-jmr">
-                                <rect key="frame" x="20" y="68" width="200" height="23"/>
-                                <buttonCell key="cell" type="roundTextured" title="Add App" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6FM-cm-aVi">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="addApp:" target="vow-w2-3Rw" id="bLb-8G-EIU"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="foE-R3-ihL">
-                                <rect key="frame" x="20" y="38" width="200" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="foE-R3-ihL">
+                                <rect key="frame" x="20" y="13" width="200" height="23"/>
                                 <buttonCell key="cell" type="roundTextured" title="Check for Updates" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dp0-eN-1Te">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -838,21 +827,34 @@
                                     <action selector="checkForUpdatesButton:" target="vow-w2-3Rw" id="QC1-wj-i1g"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nXx-44-jmr">
+                                <rect key="frame" x="20" y="43" width="200" height="23"/>
+                                <buttonCell key="cell" type="roundTextured" title="Add App" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6FM-cm-aVi">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="addApp:" target="vow-w2-3Rw" id="bLb-8G-EIU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="haV-lL-r9E" firstAttribute="top" secondItem="LC9-Kd-oWj" secondAttribute="bottom" constant="8" id="2y7-RM-uut"/>
-                            <constraint firstAttribute="bottom" secondItem="MhT-y5-OmK" secondAttribute="bottom" id="7Vg-ja-kdL"/>
-                            <constraint firstItem="MhT-y5-OmK" firstAttribute="leading" secondItem="nXx-44-jmr" secondAttribute="trailing" constant="8" id="FkZ-9r-mmo"/>
-                            <constraint firstItem="nXx-44-jmr" firstAttribute="leading" secondItem="W67-ff-hbu" secondAttribute="leading" constant="20" id="MIw-em-Z4s"/>
-                            <constraint firstItem="MhT-y5-OmK" firstAttribute="top" secondItem="W67-ff-hbu" secondAttribute="top" id="S59-ZW-d5t"/>
-                            <constraint firstItem="nXx-44-jmr" firstAttribute="top" secondItem="haV-lL-r9E" secondAttribute="bottom" constant="8" id="Ttr-1Z-bWw"/>
-                            <constraint firstItem="nXx-44-jmr" firstAttribute="top" secondItem="LC9-Kd-oWj" secondAttribute="bottom" constant="99" id="bnD-5e-4YW"/>
-                            <constraint firstAttribute="bottom" secondItem="nXx-44-jmr" secondAttribute="bottom" constant="88" id="dpy-SQ-aW4"/>
-                            <constraint firstItem="nXx-44-jmr" firstAttribute="top" secondItem="haV-lL-r9E" secondAttribute="bottom" constant="8" id="ehM-hu-pjk"/>
-                            <constraint firstItem="MhT-y5-OmK" firstAttribute="leading" secondItem="LC9-Kd-oWj" secondAttribute="trailing" constant="122" id="o8c-J6-OXC"/>
-                            <constraint firstAttribute="trailing" secondItem="MhT-y5-OmK" secondAttribute="trailing" id="sX1-fB-83S"/>
-                            <constraint firstItem="LC9-Kd-oWj" firstAttribute="top" secondItem="W67-ff-hbu" secondAttribute="top" constant="20" id="w4a-FS-5vg"/>
-                            <constraint firstItem="MhT-y5-OmK" firstAttribute="leading" secondItem="haV-lL-r9E" secondAttribute="trailing" constant="22" id="xnN-ry-AfO"/>
+                            <constraint firstItem="foE-R3-ihL" firstAttribute="top" secondItem="nXx-44-jmr" secondAttribute="bottom" constant="8" id="6uc-yA-ezH"/>
+                            <constraint firstItem="MhT-y5-OmK" firstAttribute="leading" secondItem="LC9-Kd-oWj" secondAttribute="trailing" constant="120" id="7l4-B5-i7Q"/>
+                            <constraint firstItem="MhT-y5-OmK" firstAttribute="leading" secondItem="haV-lL-r9E" secondAttribute="trailing" constant="20" id="9a4-2m-hPg"/>
+                            <constraint firstItem="haV-lL-r9E" firstAttribute="top" secondItem="LC9-Kd-oWj" secondAttribute="bottom" constant="8" id="Evg-ZH-acB"/>
+                            <constraint firstItem="nXx-44-jmr" firstAttribute="top" secondItem="haV-lL-r9E" secondAttribute="bottom" constant="31" id="ImX-P4-FN7"/>
+                            <constraint firstItem="MhT-y5-OmK" firstAttribute="leading" secondItem="foE-R3-ihL" secondAttribute="trailing" constant="20" id="Jdu-xe-zAA"/>
+                            <constraint firstAttribute="bottom" secondItem="foE-R3-ihL" secondAttribute="bottom" constant="14" id="K7H-sK-fy5"/>
+                            <constraint firstItem="foE-R3-ihL" firstAttribute="leading" secondItem="W67-ff-hbu" secondAttribute="leading" constant="20" id="KUp-ar-cZl"/>
+                            <constraint firstAttribute="bottom" secondItem="MhT-y5-OmK" secondAttribute="bottom" id="LHS-OB-CLi"/>
+                            <constraint firstItem="MhT-y5-OmK" firstAttribute="leading" secondItem="haV-lL-r9E" secondAttribute="trailing" constant="20" id="Q5J-PG-Uh5"/>
+                            <constraint firstItem="MhT-y5-OmK" firstAttribute="top" secondItem="W67-ff-hbu" secondAttribute="top" id="aCc-f4-kG4"/>
+                            <constraint firstAttribute="trailing" secondItem="MhT-y5-OmK" secondAttribute="trailing" id="eUd-3Q-d9n"/>
+                            <constraint firstItem="nXx-44-jmr" firstAttribute="leading" secondItem="W67-ff-hbu" secondAttribute="leading" constant="20" id="hKc-6j-1sG"/>
+                            <constraint firstItem="MhT-y5-OmK" firstAttribute="leading" secondItem="nXx-44-jmr" secondAttribute="trailing" constant="20" id="nvV-O2-fvS"/>
+                            <constraint firstItem="LC9-Kd-oWj" firstAttribute="leading" secondItem="W67-ff-hbu" secondAttribute="leading" constant="20" id="tOg-fi-AWs"/>
+                            <constraint firstItem="LC9-Kd-oWj" firstAttribute="top" secondItem="W67-ff-hbu" secondAttribute="top" constant="20" id="toP-Jc-Jc2"/>
                         </constraints>
                     </view>
                     <connections>
@@ -861,7 +863,7 @@
                 </viewController>
                 <customObject id="vSj-rr-nNu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="804" y="227.5"/>
+            <point key="canvasLocation" x="804" y="227"/>
         </scene>
     </scenes>
 </document>
