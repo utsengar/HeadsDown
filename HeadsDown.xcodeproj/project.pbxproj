@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AA9E04624A385FE00FA6B65 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 3AA9E04524A385FE00FA6B65 /* Sentry */; };
 		66E2303E99D03C0E70F38BC2 /* Pods_HeadsDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38DFD5669719B16724D01C02 /* Pods_HeadsDown.framework */; };
 		BF2272742463346F00D51820 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2272732463346F00D51820 /* AppDelegate.swift */; };
 		BF2272782463347100D51820 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF2272772463347100D51820 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66E2303E99D03C0E70F38BC2 /* Pods_HeadsDown.framework in Frameworks */,
+				3AA9E04624A385FE00FA6B65 /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +131,7 @@
 			);
 			name = HeadsDown;
 			packageProductDependencies = (
+				3AA9E04524A385FE00FA6B65 /* Sentry */,
 			);
 			productName = HeadsDown;
 			productReference = BF2272702463346F00D51820 /* HeadsDown.app */;
@@ -159,6 +162,7 @@
 			);
 			mainGroup = BF2272672463346F00D51820;
 			packageReferences = (
+				3AA9E04424A385FE00FA6B65 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 			);
 			productRefGroup = BF2272712463346F00D51820 /* Products */;
 			projectDirPath = "";
@@ -288,6 +292,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -349,6 +354,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -360,7 +366,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -440,6 +446,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3AA9E04424A385FE00FA6B65 /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getsentry/sentry-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3AA9E04524A385FE00FA6B65 /* Sentry */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3AA9E04424A385FE00FA6B65 /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
+			productName = Sentry;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BF2272682463346F00D51820 /* Project object */;
 }

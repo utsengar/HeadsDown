@@ -8,9 +8,12 @@
 
 import Cocoa
 import AppCenterAnalytics
+import Sparkle
 
 class ViewController: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
+    
+    let checkForUpdatesPath = "the location of the update feed"
     
     var appsAsArry = [String]()
     
@@ -68,6 +71,18 @@ class ViewController: NSViewController {
             MSAnalytics.trackEvent("AddAppDialogCancelled")
             return
         }
+    }
+    
+    @IBAction func checkForUpdates(_ sender: Any) {
+        let updater = SUUpdater.shared()
+        updater?.feedURL = URL(string: checkForUpdatesPath)
+        updater?.checkForUpdates(self)
+    }
+    
+    @IBAction func checkForUpdatesButton(_ sender: Any) {
+        let updater = SUUpdater.shared()
+        updater?.feedURL = URL(string: checkForUpdatesPath)
+        updater?.checkForUpdates(self)
     }
     
     func createDialog() -> NSOpenPanel {
