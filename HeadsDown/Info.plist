@@ -19,9 +19,9 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.6</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>1.6</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.productivity</string>
 	<key>LSMinimumSystemVersion</key>
@@ -38,5 +38,7 @@
 	<true/>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
+	<key>SUPublicEDKey</key>
+	<string>owu57sRIp396o5WConb2LtLuhtSKWp3qBAR0tM9JGUc=</string>
 </dict>
 </plist>
